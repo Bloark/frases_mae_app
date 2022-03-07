@@ -11,8 +11,23 @@ header {
     font-weight: bold
 }
 
-#mon{
-    
-    
+.fixarRodape {
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    text-align: center;     
+}
 
+.fixarRodape p{
+    background-color: #ff8c42;
+}
+
+#tx_frase{
+    font-family:'Space Mono', monospace;
+    color: #4c1e4f;
+
+}
+
+#btn_frase{
+    
 }
