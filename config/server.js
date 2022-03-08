@@ -18,12 +18,12 @@ app.use(express.static('./app/public'));
 //Configuração do bodyparser
 app.use(express.urlencoded({extended:true}));
 
-//configurar o express-session no App
-// app.use(session({
-//     secret: '2h[3v4qRCBL9z9}+', //chave / assinatura da sessão
-//     resave: false, // não salva sessões a cada requisição
-//     saveUninitialized: false // não sessão não iniciada ou vazia
-// }))
+// configurar o express-session no App
+app.use(session({
+    secret: '2h[3v4qRCBL9z9}+', //chave / assinatura da sessão
+    resave: false, // não salva sessões a cada requisição
+    saveUninitialized: false // não sessão não iniciada ou vazia
+}))
 
 
 module.exports = app;

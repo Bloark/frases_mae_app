@@ -1,0 +1,34 @@
+<%- include('../common/header')%>
+
+        <%- include('../common/menu')%>
+            
+        <main class="mb-4">
+            <div class="container">
+            <div class="container d-flex">
+                
+                <img id=""src="/img/img_icone.png" alt="Icone" class="logo2 pl-4">
+                <h1 class="mb-0">Lista de Frases</h1>
+
+            </div>
+            
+
+            <form action="/" method="POST">
+                <input type="text" name="tarefa" placeholder="Tarefa" autocomplete=off class="form-control mt-4 mb-2">
+                <input type="submit" value="Adicionar" class="btn btn-secondary" style="width: 100%"> 
+              </form>
+          
+              <hr>          
+              <ul class="list-group list-group-flush">
+                  <% frases.forEach(frase=>{%>
+
+                    <li class="list-group-item d-flex" ><%=frase %><a href="#" class="ms-auto">❌</a></li>
+                  
+                  <%})%>
+                
+                
+              </ul>
+            </div>
+        </main>
+        
+
+<%- include('../common/footer')%>

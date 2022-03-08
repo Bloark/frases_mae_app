@@ -3,17 +3,25 @@
         <%- include('../common/menu')%>
 
         <main class="mb-4">
+            <div class="bg-light p-5 mb-4">
+                <div class ="col-md-8 mx-auto text-center">
+                    <h1>Seja Bem vindo</h1>
+                    <p id="parag_index"class="lead">
+                        <strong>Clique no botão</strong> ‘Gerar Nova Frase’ para <strong>frases aleatórias</strong> direcionadas a mães, que querem inspiração na hora de responder os seus filhos ou entes queridos.
+                    </p>
+                </div>
+            </div>
             <div class="container-fluid mt-2">
                 <div class="row marcador align-items-center mt-2">
                     <div class="col mx-auto text-center">
                         <img id="mon" class="logo img-fluid" src="/img/pic_mae.png" alt="Foto Mãe">
                     </div>                          
                 </div>            
-                <div class="row frase align-items-center mt-2">
-                    <div class="col-md-6 mx-auto text-center">
+                <div id="frase_mae" class="row frase align-items-center mt-2">
+                    <div class="col-md-8 mx-auto text-center">
                             <% 
                             var num = (Math.floor(Math.random() * (frases.length) ));                       
-                            console.log(num);                       
+                                                  
                             %>
                             <h2 id="tx_frase"><%=frases.slice(num,num+1)%></h2>                    
                     </div>                          

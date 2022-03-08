@@ -2,10 +2,17 @@
     <nav class="d-flex justify-content-between flex-column flex-sm-row flex-wrap justify-content-center align-items-center" >
         <div class=""></div>
 
-            <ul class="nav nav-pills">
-                
+            <ul id ="text_menu"class="nav nav-pills">
                 <li>
-                    <a id="menuAdmin" href="#" class="nav-link text-black">Admin</a>
+                    <a id="menuHome" href="/" class="nav-link text-black">Home</a>
+                </li>                
+                <li>
+                    <a id="menuAdmin" href="/admin" class="nav-link text-black">Admin</a>
+                </li>
+                <li>
+                    <% if(typeof(autorizado) !== 'undefined'){%>
+                        <a href="/admin/sair" class="nav-link text-black">Sair</a>
+                    <% } %>                                    
                 </li>
                 
             </ul>        
