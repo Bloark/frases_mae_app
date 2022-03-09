@@ -19,18 +19,17 @@
                 </div>            
                 <div id="frase_mae" class="row frase align-items-center mt-2">
                     <div class="col-md-8 mx-auto text-center">
-                            <% 
-                            var num = (Math.floor(Math.random() * (frases.length) ));                       
-                                                  
-                            %>
-                            <h2 id="tx_frase">"<%=frases.slice(num,num+1)%>"</h2>                    
+                           
+                            
+                            <h2 id="tx_frase">"<%= frases.frase %>"</h2>
+
                     </div>                          
                 </div>
 
                 <div class="row marcador align-items-center mt-5">
-                    <div class="col mx-auto text-center">
-                        
-                        <button onclick="btn_update()" id = "btn_frase"type="button" class="btn btn-outline-secondary btn-lg">Gerar Nova Frase</button>
+                    <div class="col mx-auto text-center">                        
+                       
+                        <a href="/" class="btn btn-outline-secondary btn-lg">Gerar Nova Frase</a>
                     </div>                          
                 </div>           
                 

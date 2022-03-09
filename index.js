@@ -11,7 +11,7 @@ const app = require('./config/server');
 //cons db = require('./dbConnection')
 
 //recuperando o modulo mockup
-const frases = require('./mockup')
+// const frases = require('./mockup')
 
 //Recuperado Database
 const db = require('./config/dbConnection')
@@ -19,10 +19,14 @@ const db = require('./config/dbConnection')
 
 // Rota Home
 app.get('/', (req, res) => {
+  //Query para gerar frases aleátorias
+  db.query('SELECT * FROM frases ORDER BY RANDOM() LIMIT 1',function(error,result){
+   
+    res.render('home/index',{frases:result.rows[0]})
+     
+  })
 
-    res.render('home/index',{frases:frases})  
-  
-  });
+});
 
 //rota admin
 app.get('/admin', function(req, res){
@@ -97,10 +101,6 @@ console.log(id)
   })
 
 })
-
-
-
-
 
 // Start Server
 app.listen(process.env.PORT || 3000, () => {
