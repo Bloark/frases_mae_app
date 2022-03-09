@@ -13,6 +13,10 @@ const app = require('./config/server');
 //recuperando o modulo mockup
 const frases = require('./mockup')
 
+//Recuperado Database
+const db = require('./config/dbConnection')
+
+
 // Rota Home
 app.get('/', (req, res) => {
 
@@ -23,8 +27,15 @@ app.get('/', (req, res) => {
 //rota admin
 app.get('/admin', function(req, res){
   if (req.session.autorizado == true){
-     res.render('admin/form_add_frase',{autorizado:req.session.autorizado,frases:frases})
-     
+    //Fazendo consulta na base de dados
+    db.query('SELECT * FROM frases ORDER BY id_frase DESC',function(error,result){
+      //console.log(result.rows)
+      res.render('admin/form_add_frase',{autorizado:req.session.autorizado,frases:result.rows})
+
+    })
+    //redenrizando a pagina para usar respostas na requisição com mockup
+    //  res.render('admin/form_add_frase',{autorizado:req.session.autorizado,frases:frases})  
+
   }else {
       res.render('admin/login')
   }
@@ -54,6 +65,42 @@ app.get('/admin/sair', function(req, res){
   res.redirect('/admin')
 
 })
+
+//Rota responsável por para salvar frase
+app.post('/admin/salvar-frase',function(req,res){
+
+  //Recuperação das informações passada por POST
+  let {frase} = req.body
+
+  //Método para inserir dados na tabela
+  db.query('insert into frases(frase) VALUES ($1)',[frase], function(erroe, result){
+    //redirecionar para a mesma pagina. 
+    res.redirect('/admin')
+  })
+
+
+})
+
+//Rota para deletar frase
+
+app.get('/frase', function(req, res){
+
+const id = req.query.id;
+
+console.log(id)
+
+  db.query('DELETE FROM frases WHERE id_frase = $1',[id], function(error,result){
+    //redirecionar para a mesma pagina. 
+    console.log("erro: "+error)
+    console.log("Retorno"+result)
+    res.redirect('/admin')
+  })
+
+})
+
+
+
+
 
 // Start Server
 app.listen(process.env.PORT || 3000, () => {

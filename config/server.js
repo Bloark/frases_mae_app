@@ -15,7 +15,7 @@ app.set('views','./app/views');
 // o caminho dos arquivos estáticos
 app.use(express.static('./app/public'));
 
-//Configuração do bodyparser
+//Configuração do bodyparser do express (método post)
 app.use(express.urlencoded({extended:true}));
 
 // configurar o express-session no App

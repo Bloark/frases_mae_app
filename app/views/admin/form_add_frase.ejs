@@ -1,9 +1,9 @@
 <%- include('../common/header')%>
 
         <%- include('../common/menu')%>
-            
-        <main class="mb-4">
-            <div class="container">
+        
+        <main class="mb-auto mt-auto">
+            <div class="container mt-auto">
             <div class="container d-flex">
                 
                 <img id=""src="/img/img_icone.png" alt="Icone" class="logo2 pl-4">
@@ -12,8 +12,8 @@
             </div>
             
 
-            <form action="/" method="POST">
-                <input type="text" name="tarefa" placeholder="Digite a frase" autocomplete=off class="form-control mt-4 mb-2">
+            <form action="/admin/salvar-frase" method="POST">
+                <input type="text" name="frase" placeholder="Digite a frase" autocomplete=off class="form-control mt-4 mb-2">
                 <input type="submit" value="Adicionar" class="btn btn-secondary" style="width: 100%"> 
               </form>
           
@@ -21,7 +21,9 @@
               <ul class="list-group list-group-flush">
                   <% frases.forEach(frase=>{%>
 
-                    <li class="list-group-item d-flex" ><%=frase %><a href="#" class="ms-auto">❌</a></li>
+                    <li class="list-group-item d-flex" ><%=frase.frase %><a href="/frase?id=<%=frase.id_frase %>" class="ms-auto">❌</a>
+                    
+                    </li>
                   
                   <%})%>
                 
